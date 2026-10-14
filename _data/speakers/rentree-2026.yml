@@ -86,14 +86,28 @@ largement adoptées : on trouve ses algorithmes et son code dans plusieurs bibli
   # Expected to be the keynote, not yet confirmed.
   keynote: false
   title:
-    fr: 
-    en: 
+    fr: "Concevoir la société numérique : de l'intention humaine à des systèmes fiables"
+    en: "Engineering the Digital Society: From Human Intent to Dependable Systems"
   abstract:
-    fr: 
-    en: 
+    fr: "Les systèmes numériques conditionnent l'accès aux services, la sécurité, la vie privée et les possibilités offertes à chacun. On décrit souvent leurs défaillances comme des bogues, mais beaucoup commencent plus tôt : par des hypothèses restées implicites, des parties prenantes dont les besoins n'ont pas été représentés, ou des composants qui ne fonctionnent pas ensemble comme prévu. Le génie logiciel nous donne les moyens de rendre ces hypothèses explicites, de traduire les besoins humains et sociétaux en exigences de système, et de recueillir des preuves que les systèmes y répondent à mesure qu'ils évoluent. Ce défi devient plus pressant à mesure que l'IA aide à produire du logiciel de plus en plus vite. En m'appuyant sur des exemples tirés des systèmes critiques pour la sûreté et sur mes travaux portant sur les exigences sociales, juridiques, éthiques, empathiques et culturelles, je soutiendrai qu'un logiciel fiable repose sur plus qu'un code correct. Il repose sur un alignement durable entre les systèmes et les personnes qui en dépendent. SERIQ contribuera à bâtir cette capacité par la recherche, la collaboration et la formation de personnes capables de la mettre en pratique."
+    en: "Digital systems shape access to services, safety, privacy, and opportunity. Their failures are often described as bugs, but many begin earlier: with assumptions left unstated, stakeholders whose needs were not represented, or components that do not work together as intended. Software engineering gives us ways to make those assumptions explicit, translate human and societal needs into system requirements, and gather evidence that systems meet them as they change. This challenge becomes more urgent as AI helps produce software at increasing speed. I will draw on examples from safety-critical systems and my work on social, legal, ethical, empathetic, and cultural requirements to argue that dependable software depends on more than correct code. It depends on sustained alignment between systems and the people who rely on them. SERIQ will help build that capacity through research, collaboration, and the training of people who can put it into practice."
   bio:
-    fr: "Marsha Chechik est professeure au Département d'informatique de l'Université de Toronto. Ses recherches appliquent les méthodes formelles à la qualité du logiciel, notamment la vérification, la sûreté et la sécurité."
-    en: "Marsha Chechik is a professor in the Department of Computer Science at the University of Toronto. Her research applies formal methods to software quality, including verification and safety and security."
+    fr: |-
+      Marsha Chechik est professeure au Département d'informatique de l'Université de Toronto et titulaire de la Chaire universitaire Bell en génie logiciel. Elle a obtenu son doctorat à l'Université du Maryland en 1996.
+
+      Elle est l'auteure de plus de 200 articles sur les méthodes formelles, la spécification et la vérification de logiciels, la sûreté et la sécurité informatiques et l'ingénierie des exigences. Ses travaux actuels portent sur l'assurance et la fiabilité du logiciel dans divers domaines, dont l'automobile, la robotique et la santé.
+
+      La professeure Chechik a coprésidé le comité de programme de nombreuses conférences internationales de premier plan en génie logiciel, en vérification et en méthodes formelles, dont FM'23, ESEC/FSE'21, ICSE'18, VSTTE'16, TACAS'16, ASE'14, FASE'08 et CONCUR'08. Elle est également rédactrice en chef adjointe des revues International Journal on Software and Systems Modeling et IEEE Transactions on Software Engineering.
+
+      La professeure Chechik est Fellow de la communauté Automated Software Engineering, Distinguished Member de l'ACM, membre du groupe de travail IFIP 2.3 sur l'ingénierie des exigences et vice-présidente de l'ACM Special Interest Group on Software Engineering (SIGSOFT).
+    en: |-
+      Marsha Chechik is a Professor in the Department of Computer Science and Bell University Chair in Software Engineering at the University of Toronto. She received her Ph.D from the University of Maryland in 1996.
+
+      She has authored over 200 papers in formal methods, software specification and verification, computer safety and security and requirements engineering. Her current interests are in software assurance and reliability in a variety of domains including automotive, robotics and healthcare.
+
+      Professor Chechik has been Program Committee Co-Chair of many top international conferences in software engineering, verification and formal methods, including FM'23, ESEC/FSE'21, ICSE'18, VSTTE'16, TACAS'16, ASE'14, FASE'08, CONCUR'08. She also serves as Associate Editor in Chief of International Journal on Software and Systems Modeling and IEEE Transactions on Software Engineering.
+
+      Professor Chechik is Fellow of Automated Software Engineering, Distinguished Member of ACM, Member of IFIP 2.3 Working Group on Requirements Engineering and Vice Chair of ACM Special Interest Group on Software Engineering (SIGSOFT).
 
 - name: Yves Daoust
   # Free text rather than a key into `institutions:` in _data/i18n/*.yml: that
