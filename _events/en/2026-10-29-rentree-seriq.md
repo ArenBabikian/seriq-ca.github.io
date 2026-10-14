@@ -31,11 +31,28 @@ summary: >-
   together for guest talks, a panel and a reception.
 ---
 
-<div class="hero">
+<section class="band band--feature">
   <div class="wrap">
-    <p class="kicker">SERIQ meeting</p>
-    <h1 lang="fr">Rentrée SERIQ</h1>
-    <p class="lede">
+    <div class="event event--page">
+      <p class="kicker">SERIQ meeting</p>
+      <h1 class="event-name" lang="fr">Rentrée SERIQ</h1>
+      <p class="when">{% include date.html date=page.event_date lang=page.lang weekday=true %}</p>
+      <dl class="event-details">
+        <dt>Time</dt><dd>{{ page.event_time }}</dd>
+        <dt>Venue</dt><dd><span lang="fr">{{ page.event_venue }}, {{ page.event_building }}</span>, <span class="room">room {{ page.event_room }}</span></dd>
+        <dt>Language</dt><dd>Bilingual (French and English)</dd>
+      </dl>
+      <p class="more">
+        <a class="cta" href="{{ page.registration_url }}">Register</a>
+        <span class="deadline">by {% include date.html date=page.registration_closes lang=page.lang %}</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="band band--paper">
+  <div class="wrap wrap--gutter">
+    <p>
       SERIQ expands the <a href="https://semtl.github.io/">SEMTL</a> research
       network to work on software engineering for the digital society. For its
       <i lang="fr">rentrée</i>, we invite researchers, students, industry
@@ -45,71 +62,69 @@ summary: >-
       scope of SERIQ, followed by remarks, before a networking reception with
       student posters.
     </p>
-  </div>
-</div>
-
-<section class="band band--feature">
-  <div class="wrap">
-    <div class="event">
-      <p class="when">{% include date.html date=page.event_date lang=page.lang weekday=true %}</p>
-      <dl class="event-details">
-        <dt>Time</dt><dd>{{ page.event_time }}</dd>
-        <dt>Venue</dt><dd><span lang="fr">{{ page.event_venue }}<br>{{ page.event_building }}</span><br><span class="room">Room {{ page.event_room }}</span></dd>
-        <dt>Language</dt><dd>Bilingual (French and English)</dd>
-        <dt>Register</dt><dd>by {% include date.html date=page.registration_closes lang=page.lang %}</dd>
-      </dl>
-      <p class="more">
-        <a class="cta" href="{{ page.registration_url }}">Register</a>
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="band band--paper">
-  <div class="wrap">
-    <h2>Programme</h2>
-    <ul>
+    <h2 class="programme-title">Programme</h2>
+    <ol class="programme">
       <li>
-        <strong>3:45–4:00 p.m.</strong> Registration.
+        <p class="slot-time">3:45–4:00 p.m.</p>
+        <div class="slot-body">
+          <h3>Registration</h3>
+          <p>Check-in for registered attendees.</p>
+        </div>
       </li>
       <li>
-        <strong>4:00 p.m.</strong> Opening.
+        <p class="slot-time">4:00 p.m.</p>
+        <div class="slot-body">
+          <h3>Opening</h3>
+          <p>Welcome and introduction to the afternoon.</p>
+        </div>
       </li>
       <li>
-        <strong>4:15–5:30 p.m.</strong> Guest talks from research and industry.
-        Each speaker presents their view on software research in 15 minutes:
-        {% include speakers.html event=page.speakers %}
+        <p class="slot-time">4:15–5:30 p.m.</p>
+        <div class="slot-body">
+          <h3>Guest talks</h3>
+          <p>Four speakers from research and industry each present their view on software research in 15 minutes.</p>
+          {% include speakers.html event=page.speakers %}
+        </div>
       </li>
       <li>
-        <strong>5:30–6:00 p.m.</strong> Break.
+        <p class="slot-time">5:30–6:00 p.m.</p>
+        <div class="slot-body">
+          <h3>Break</h3>
+          <p>A short break before the panel.</p>
+        </div>
       </li>
       <li>
-        <strong>6:00–6:45 p.m.</strong> Panel, <em>Software research for
-        society: needs and opportunities</em>, where the speakers discuss the
-        topics more broadly. Moderated by Martin Robillard.
+        <p class="slot-time">6:00–6:45 p.m.</p>
+        <div class="slot-body">
+          <h3>Panel</h3>
+          <p>The speakers discuss <em>Software research for society: needs and opportunities</em>.</p>
+          {% include panel.html event=page.speakers moderator="Robillard, Martin" %}
+        </div>
       </li>
       <li>
-        <strong>6:45–7:15 p.m.</strong> The history and scope of SERIQ, by its
-        director Benoit Baudry, followed by deans and other representatives
-        (to be confirmed).
+        <p class="slot-time">6:45–7:15 p.m.</p>
+        <div class="slot-body">
+          <h3>Presentation of SERIQ</h3>
+          <p>Benoit Baudry, director of SERIQ, presents its history and scope, followed by remarks from deans and other representatives (to be confirmed).</p>
+        </div>
       </li>
       <li>
-        <strong>7:15–8:00 p.m.</strong> Networking reception, with student
-        posters.
-        <ul>
-          <li>
-            Students can submit a poster proposal with the
-            <a href="https://forms.gle/jUGuScfx11nuFTti7">submission form</a>
-            by October 9, 2026.
-          </li>
-        </ul>
+        <p class="slot-time">7:15–8:00 p.m.</p>
+        <div class="slot-body">
+          <h3>Networking reception</h3>
+          <p>A reception with about 35 student posters.</p>
+        </div>
       </li>
-    </ul>
+    </ol>
+    <p class="programme-more">
+      <a class="cta" href="{{ page.registration_url }}">Register</a>
+      <span>by {% include date.html date=page.registration_closes lang=page.lang %}</span>
+    </p>
   </div>
 </section>
 
 <section class="band band--surface">
-  <div class="wrap">
+  <div class="wrap wrap--gutter">
     <h2>Getting there</h2>
     <p>
       <span lang="fr">{{ page.event_building }}</span>, room {{ page.event_room }}<br>

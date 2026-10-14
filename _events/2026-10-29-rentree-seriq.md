@@ -31,11 +31,28 @@ summary: >-
   invitées, d'une table ronde et d'une réception.
 ---
 
-<div class="hero">
+<section class="band band--feature">
   <div class="wrap">
-    <p class="kicker">Rencontre SERIQ</p>
-    <h1>Rentrée SERIQ</h1>
-    <p class="lede">
+    <div class="event event--page">
+      <p class="kicker">Rencontre SERIQ</p>
+      <h1 class="event-name">Rentrée SERIQ</h1>
+      <p class="when">{% include date.html date=page.event_date lang=page.lang weekday=true %}</p>
+      <dl class="event-details">
+        <dt>Heure</dt><dd>{{ page.event_time }}</dd>
+        <dt>Lieu</dt><dd>{{ page.event_venue }}, {{ page.event_building }}, <span class="room">local {{ page.event_room }}</span></dd>
+        <dt>Langue</dt><dd>Bilingue (français et anglais)</dd>
+      </dl>
+      <p class="more">
+        <a class="cta" href="{{ page.registration_url }}">S'inscrire</a>
+        <span class="deadline">d'ici le {% include date.html date=page.registration_closes lang=page.lang %}</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="band band--paper">
+  <div class="wrap wrap--gutter">
+    <p>
       SERIQ élargit le réseau de recherche
       <a href="https://semtl.github.io/">SEMTL</a> et se consacre au génie
       logiciel pour la société numérique. Pour sa rentrée, nous invitons
@@ -47,73 +64,69 @@ summary: >-
       des allocutions, puis une réception de réseautage autour d'affiches
       étudiantes.
     </p>
-  </div>
-</div>
-
-<section class="band band--feature">
-  <div class="wrap">
-    <div class="event">
-      <p class="when">{% include date.html date=page.event_date lang=page.lang weekday=true %}</p>
-      <dl class="event-details">
-        <dt>Heure</dt><dd>{{ page.event_time }}</dd>
-        <dt>Lieu</dt><dd>{{ page.event_venue }}<br>{{ page.event_building }}<br><span class="room">Local {{ page.event_room }}</span></dd>
-        <dt>Langue</dt><dd>Bilingue (français et anglais)</dd>
-        <dt>Inscription</dt><dd>d'ici le {% include date.html date=page.registration_closes lang=page.lang %}</dd>
-      </dl>
-      <p class="more">
-        <a class="cta" href="{{ page.registration_url }}">S'inscrire</a>
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="band band--paper">
-  <div class="wrap">
-    <h2>Programme</h2>
-    <ul>
+    <h2 class="programme-title">Programme</h2>
+    <ol class="programme">
       <li>
-        <strong>15 h 45 – 16 h</strong> Accueil et inscription.
+        <p class="slot-time">15 h 45 – 16 h</p>
+        <div class="slot-body">
+          <h3>Accueil et inscription</h3>
+          <p>Accueil des personnes inscrites.</p>
+        </div>
       </li>
       <li>
-        <strong>16 h</strong> Mot d'ouverture.
+        <p class="slot-time">16 h</p>
+        <div class="slot-body">
+          <h3>Mot d'ouverture</h3>
+          <p>Mot de bienvenue et présentation de l'après-midi.</p>
+        </div>
       </li>
       <li>
-        <strong>16 h 15 – 17 h 30</strong> Conférences invitées, du milieu de la
-        recherche comme de l'industrie. Chaque invité.e expose sa vision de la
-        recherche en logiciel en 15 minutes :
-        {% include speakers.html event=page.speakers %}
+        <p class="slot-time">16 h 15 – 17 h 30</p>
+        <div class="slot-body">
+          <h3>Conférences invitées</h3>
+          <p>Quatre invité.e.s du milieu de la recherche et de l'industrie exposent chacun.e leur vision de la recherche en logiciel en 15 minutes.</p>
+          {% include speakers.html event=page.speakers %}
+        </div>
       </li>
       <li>
-        <strong>17 h 30 – 18 h</strong> Pause.
+        <p class="slot-time">17 h 30 – 18 h</p>
+        <div class="slot-body">
+          <h3>Pause</h3>
+          <p>Une courte pause avant la table ronde.</p>
+        </div>
       </li>
       <li>
-        <strong>18 h – 18 h 45</strong> Table ronde, <em>La recherche en logiciel
-        pour la société : besoins et possibilités</em>, où les conférencières et
-        conférenciers discutent plus largement des sujets abordés. Animée par
-        Martin Robillard.
+        <p class="slot-time">18 h – 18 h 45</p>
+        <div class="slot-body">
+          <h3>Table ronde</h3>
+          <p>Les conférencières et conférenciers discutent de <em>La recherche en logiciel pour la société : besoins et possibilités</em>.</p>
+          {% include panel.html event=page.speakers moderator="Robillard, Martin" %}
+        </div>
       </li>
       <li>
-        <strong>18 h 45 – 19 h 15</strong> L'histoire et la portée de SERIQ, par
-        son directeur Benoit Baudry, suivies d'allocutions de doyen.ne.s et
-        d'autres représentant.e.s (à confirmer).
+        <p class="slot-time">18 h 45 – 19 h 15</p>
+        <div class="slot-body">
+          <h3>Présentation de SERIQ</h3>
+          <p>Benoit Baudry, directeur de SERIQ, en présente l'histoire et la portée, suivi d'allocutions de doyen.ne.s et d'autres représentant.e.s (à confirmer).</p>
+        </div>
       </li>
       <li>
-        <strong>19 h 15 – 20 h</strong> Réception de réseautage, avec des affiches
-        étudiantes.
-        <ul>
-          <li>
-            Les étudiant.e.s peuvent proposer une affiche avec le
-            <a href="https://forms.gle/jUGuScfx11nuFTti7">formulaire de soumission</a>
-            d'ici le 9 octobre 2026.
-          </li>
-        </ul>
+        <p class="slot-time">19 h 15 – 20 h</p>
+        <div class="slot-body">
+          <h3>Réception de réseautage</h3>
+          <p>Une réception autour d'environ 35 affiches étudiantes.</p>
+        </div>
       </li>
-    </ul>
+    </ol>
+    <p class="programme-more">
+      <a class="cta" href="{{ page.registration_url }}">S'inscrire</a>
+      <span>d'ici le {% include date.html date=page.registration_closes lang=page.lang %}</span>
+    </p>
   </div>
 </section>
 
 <section class="band band--surface">
-  <div class="wrap">
+  <div class="wrap wrap--gutter">
     <h2>Accès</h2>
     <p>
       {{ page.event_building }}, local {{ page.event_room }}<br>

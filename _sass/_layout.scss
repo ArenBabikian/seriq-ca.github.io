@@ -147,6 +147,21 @@ section.band > .wrap > p.note {
 .hero + section.band--surface { border-top: 1px solid var(--rule); }
 .band--feature + section.band { border-top: 0; }
 
+/* A band whose text starts where the hero's does when the hero has a label in
+   its margin: past the --gutter column, with that column left for labels such
+   as the programme's times. The text is set ragged rather than justified, as
+   the programme beside it is, and left in the column rather than centred, so
+   the page keeps one left edge from the title down. */
+section.band > .wrap--gutter > :is(h2, h3, p, ul, ol, dl, blockquote):not([class]) {
+  margin-inline: 0; max-width: var(--measure); text-align: left;
+}
+.wrap--gutter .map { margin-inline: 0; max-width: var(--measure); }
+/* An introduction above a band's heading is set apart from what it heads. */
+section.band > .wrap--gutter > p:not([class]) + h2 { margin-top: 1.75rem; }
+@media (min-width: 48rem) {
+  .wrap--gutter { padding-left: calc(1.5rem + var(--gutter) + var(--gutter-gap)); }
+}
+
 /* Prose. Zero-specificity defaults: they style unclassed markup inside a band
    and step aside for any component class without needing to be outranked. */
 :where(section.band ul, section.band ol) {

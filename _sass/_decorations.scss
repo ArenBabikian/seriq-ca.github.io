@@ -437,3 +437,121 @@ $event-frame: event-frame-layers();
   background: var(--node); transform: translateY(.05em);
   box-shadow: 0 0 0 1px var(--node-line);
 }
+
+/* The programme's run: the same wire down the margin as the axes', between
+   the times and the slots, with a node level with each slot's name. The rows
+   are as tall as their content, so the run cannot be drawn once on the list as
+   the axes' is; each row draws the leg from its own node down to the next
+   row's, which is the row's height plus the next row's 1px rule. The last row
+   draws none, so the run stops dead on the closing node. No signal rides this
+   one: it would have to cross legs of different lengths in one motion.
+
+   The guest talks branch off it. Each speaker card's westward stub, unused in
+   the one-column register, is turned on and lengthened to reach the run, so
+   the four portraits read as nodes hung off the talks slot; the stubs between
+   the cards are dropped, since the run now joins them. */
+@media (min-width: 48rem) {
+  /* A step heavier than the site's other runs: this one carries the page. */
+  .wrap--gutter { --run: 3px; }
+  .programme > li {
+    position: relative;
+    --wire-x: calc(var(--gutter) + var(--gutter-gap) / 2);
+    /* The row's 1rem of padding, then half the slot name's line. */
+    --node-y: calc(1rem + var(--t-md) * .825);
+  }
+  .programme > li:not(:last-child)::before {
+    content: ""; position: absolute;
+    left: calc(var(--wire-x) - var(--run) / 2); width: var(--run);
+    top: var(--node-y); height: calc(100% + 1px);
+    background: var(--wire); opacity: .55;
+  }
+  .programme > li::after {
+    content: ""; position: absolute;
+    left: calc(var(--wire-x) - var(--node-size) / 2);
+    top:  calc(var(--node-y) - var(--node-size) / 2);
+    width: var(--node-size); height: var(--node-size);
+    background: var(--node);
+    box-shadow: 0 0 0 1px var(--node-line);
+  }
+
+  .programme .member-list.speaker-list li::after { display: none; }
+  /* At the run's own weight and tint, so a branch reads as the same wire; the
+     port where it meets the card is even-sized, so both centre on one line. */
+  .programme .member-list.speaker-list li::before {
+    display: block;
+    top: calc(var(--node-y) - 2px); right: calc(100% - 2px);
+    width: calc(var(--gutter-gap) / 2 + 2px); height: 4px;
+    background-image:
+      linear-gradient(var(--wire), var(--wire)),
+      linear-gradient(color-mix(in srgb, var(--wire) 55%, transparent),
+                      color-mix(in srgb, var(--wire) 55%, transparent));
+    background-size: 4px 4px, 100% var(--run);
+    background-position: right center, left center;
+  }
+
+  /* The run sets out from the boxed heading: out of its left side, across to
+     the run's line, and down to the first slot's node. The drop is the rest
+     of the heading below its middle, its bottom margin, the list's top margin,
+     the first row's rule, and that row's --node-y. */
+  .wrap--gutter .programme-title { position: relative; --branch: calc(var(--gutter-gap) / 2); }
+  .wrap--gutter .programme-title::before,
+  .wrap--gutter .programme-title::after {
+    content: ""; position: absolute;
+    background: var(--wire); opacity: .55;
+  }
+  .wrap--gutter .programme-title::after {     /* out of the box */
+    left: calc(-1px - var(--branch) + var(--run) / 2);
+    width: calc(var(--branch) - var(--run) / 2);
+    top: calc(50% - var(--run) / 2); height: var(--run);
+  }
+  /* Offsets are from the padding box, so the box's 1px border is counted in
+     both directions. */
+  .wrap--gutter .programme-title::before {    /* and down to the first node */
+    left: calc(-1 * var(--branch) - 1px - var(--run) / 2); width: var(--run);
+    top: calc(50% - var(--run) / 2);
+    height: calc(50% + var(--run) / 2 + 1px + .9rem + 1.25rem + 1px
+                 + 1rem + var(--t-md) * .825);
+  }
+
+  /* The run carries on past the last slot to the registration button under
+     the programme: the last row's leg runs to the row's foot, and the button's
+     paragraph picks it up across its top margin and turns it in to the
+     button's middle. */
+  .programme:has(+ .programme-more) > li:last-child::before {
+    content: ""; position: absolute;
+    left: calc(var(--wire-x) - var(--run) / 2); width: var(--run);
+    top: var(--node-y); height: calc(100% - var(--node-y) + 1px);
+    background: var(--wire); opacity: .55;
+  }
+  .wrap--gutter .programme-more {
+    position: relative;
+    --branch: calc(var(--gutter-gap) / 2);
+  }
+  .wrap--gutter .programme-more::before,
+  .wrap--gutter .programme-more::after {
+    content: ""; position: absolute;
+    background: var(--wire); opacity: .55;
+  }
+  .wrap--gutter .programme-more::before {    /* down, across the margin */
+    left: calc(-1 * var(--branch) - var(--run) / 2); width: var(--run);
+    top: -1.5rem; height: calc(1.5rem + 50% + var(--run) / 2);
+  }
+  /* And in, to the button, ending in an arrowhead: this is the one place the
+     run leads somewhere the reader is meant to go. The leg is drawn --head
+     tall and cut to a shaft with a head by clip-path, so the two are one
+     shape in one tint. */
+  .wrap--gutter .programme-more::after {
+    --head: 11px;
+    left: calc(-1 * var(--branch) + var(--run) / 2);
+    width: calc(var(--branch) - var(--run) / 2 - 2px);
+    top: calc(50% - var(--head) / 2); height: var(--head);
+    clip-path: polygon(
+      0 calc(50% - var(--run) / 2),
+      calc(100% - var(--head)) calc(50% - var(--run) / 2),
+      calc(100% - var(--head)) 0,
+      100% 50%,
+      calc(100% - var(--head)) 100%,
+      calc(100% - var(--head)) calc(50% + var(--run) / 2),
+      0 calc(50% + var(--run) / 2));
+  }
+}

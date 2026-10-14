@@ -1,0 +1,40 @@
+{%- comment %}
+  Who sits on a panel: the event's invited speakers, then its moderator. Call
+  with the basename of a file under _data/speakers/ and the moderator's name as
+  it is written in _data/members.yml, e.g.
+  {% include panel.html event="rentree-2026" moderator="Robillard, Martin" %}.
+
+  A row of small portraits, the same amber nodes as the speaker cards and the
+  register, so the panel is visibly the people from the talks above it. The
+  moderator is looked up in the members register rather than written out
+  again, and is named first name first, as the speakers are.
+
+  Portraits are decorative here: the name beside each one says who it is.
+{% endcomment -%}
+{%- assign t = site.data.i18n[page.lang] -%}
+{%- assign speakers = site.data.speakers[include.event] -%}
+{%- assign mod = site.data.members | where: "name", include.moderator | first -%}
+<ul class="panel-list">
+  {%- for s in speakers %}
+  {%- assign src = '/assets/img/speakers/' | append: s.photo | relative_url -%}
+  {%- if s.photo contains '://' %}{% assign src = s.photo %}{% endif %}
+  <li>
+    {%- if s.photo %}
+    <img class="portrait" src="{{ src }}" alt="" width="32" height="32"
+         loading="lazy" decoding="async" referrerpolicy="no-referrer">
+    {%- else %}
+    <span class="portrait portrait--empty" aria-hidden="true"></span>
+    {%- endif %}
+    <span class="name">{{ s.name }}</span>
+  </li>
+  {%- endfor %}
+  {%- if mod %}
+  {%- assign parts = mod.name | split: ", " %}
+  <li class="panel-moderator">
+    <img class="portrait" src="{{ '/assets/img/members/' | append: mod.photo | relative_url }}"
+         alt="" width="32" height="32" loading="lazy" decoding="async">
+    <span class="name">{{ parts[1] }} {{ parts[0] }}</span>
+    <span class="role">{{ t.events.moderator }}</span>
+  </li>
+  {%- endif %}
+</ul>

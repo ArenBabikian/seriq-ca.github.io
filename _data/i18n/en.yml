@@ -73,6 +73,7 @@ events:
   next_details: Meeting details
   past_heading: Past meetings
   keynote: Keynote
+  moderator: Moderator
   archive_source: >-
     Originally published on the SEMTL site:
 

@@ -35,13 +35,29 @@
 }
 .event--next .event-name a:hover, .event--next .when a:hover,
 .event--next .event-details a:hover { text-decoration: underline; }
-/* The card carries the summary at reading size, with more room inside the
-   frame. */
-.event--next { --pad-x: 1.4rem; padding: 2rem var(--pad-x) 2.5rem; }
+/* The card carries the summary at reading size. The date steps down to the
+   event page header's size, which keeps it to one line beside the summary. */
+.event--next { --pad-x: 1.4rem; padding: 1.25rem var(--pad-x) 1.5rem; }
+.event--next .when { font-size: var(--t-xl); }
+.event--next .event-details { margin-top: .8rem; gap: .1rem 1.15rem; }
 /* Narrow, the kicker says what the card is before the name rather than after
    the date; wide, it is placed in the margin column regardless. */
 .event--next .kicker { order: -1; margin: 0 0 .45rem; }
 .event--next .note { font-size: var(--t-base); }
+/* The event page's own header: the same panel as the homepage card, carrying
+   the page title as its name, without a summary — the page's introduction sits
+   above the programme instead. The name is the heading of the page, so it
+   leads and the date steps down a size beneath it. Tighter than the card, so
+   the header does not hold the programme below the fold. */
+.band--feature:has(.event--page) { padding: 1.25rem 0 1.5rem; }
+.event--page { padding-block: 1rem; }
+.event--page .event-name {
+  font-size: var(--t-2xl); line-height: 1.1; letter-spacing: -.015em;
+  text-wrap: balance;
+}
+.event--page .when { margin-top: .2rem; font-size: var(--t-xl); }
+.event--page .event-details { margin-top: .8rem; gap: .1rem 1.15rem; }
+.event--page .deadline { color: var(--feature-ink-2); }
 .event-details {
   order: 3;
   display: grid; grid-template-columns: auto 1fr;
@@ -118,9 +134,42 @@
      spans the first two so it does not stretch the name's row on its own. */
   /* The date row takes any height the note needs beyond the name and date, so
      the slack falls below the date rather than between it and the name. */
-  .event--next { --pad-x: 2.5rem; grid-template-rows: auto 1fr auto; }
-  .event--next .note { grid-row: 1 / span 2; }
-  .event--next .more { grid-row: 3; }
+  /* The card's two sides are grouped, so each is only as tall as its own
+     content: as rows of one grid, the summary's height was shared out into the
+     gap under the date. The side carries the column rule once. */
+  /* Two even columns, the label over the name rather than out in a margin
+     column of its own: with the margin, the summary side was left too narrow
+     for its text. The label, name, date and details are narrower than their
+     half, so they are centred in it rather than leaving the gap at the rule. */
+  .event--next {
+    --pad-x: 2.5rem;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .event--next .kicker { padding-top: 0; margin: 0 0 .45rem; }
+  .event--next .event-main {
+    grid-column: 1; grid-row: 1; justify-self: center; align-self: center;
+  }
+  .event--next .event-side {
+    grid-column: 2; grid-row: 1; align-self: stretch;
+    padding: .3rem 0 .3rem var(--gutter-gap);
+    border-left: 1px solid var(--feature-rule);
+  }
+  .event--next .event-side > .note, .event--next .event-side > .more {
+    padding: 0; border: 0;
+  }
+  /* The actions clear the summary above them by more than a line's leading. */
+  .event--next .event-side > .more { margin-top: 1.1rem; }
+  /* With no note, the action has the third column to itself, level with the
+     name and the date. */
+  .event--page .kicker { padding-top: .9rem; }
+  /* The details run on under the action, so the venue keeps to one line. */
+  .event--page .event-details { grid-column: 2 / span 2; }
+  .event--page .more {
+    grid-row: 1 / span 2; align-self: center; padding-block: .5rem;
+    /* The deadline under the button rather than beside it: the French one is
+       too long to share the column's line. Both stay centred, from .event .more. */
+    flex-direction: column;
+  }
 }
 
 /* Research axes — numbered because the axes are numbered in the charter.
@@ -220,6 +269,74 @@ section.band .axes + h2 { margin-top: 2.75rem; }
   color: var(--ink-2); letter-spacing: .02em;
 }
 .event-list + .year { margin-top: 1.75rem; }
+
+/* An event's programme. Each slot is a ruled row, as in the event list above,
+   with its time in a column of its own, in the wire blue and the tabular
+   figures of the event details, so the times line up and can be scanned. Body
+   type rather than mono: the French times ("16 h 15 – 17 h 30") are long, and
+   mono spaces would push them past the column.
+
+   Inside a .wrap--gutter, wide, the times hang in the margin column the hero
+   keeps for its label: the list pulls back across the gutter by the wrap's
+   extra padding and takes the hero's two columns, so the slot names start on
+   the title's left edge and the rules run under the times as well. */
+.programme {
+  list-style: none; padding: 0; margin: 1.25rem 0 0; max-width: none;
+}
+.programme > li {
+  margin: 0; padding: 1rem 0; border-top: 1px solid var(--rule);
+  display: grid; grid-template-columns: 1fr; gap: .2rem var(--gutter-gap);
+}
+.programme > li:last-child { border-bottom: 1px solid var(--rule); }
+.programme .slot-time {
+  margin: 0; padding-top: .15rem; align-self: start; white-space: nowrap;
+  font-size: var(--t-sm); font-weight: 600;
+  color: var(--wire); font-variant-numeric: tabular-nums;
+}
+.programme .slot-body { min-width: 0; max-width: var(--measure); }
+.programme h3 {
+  margin: 0; font-size: var(--t-md); letter-spacing: -.01em;
+}
+.programme .slot-body > p { margin: .3rem 0 0; color: var(--ink-2); }
+/* Room under the last card, so it does not sit on the next slot's rule. */
+.programme .member-list.speaker-list { max-width: none; margin: 1rem 0 .5rem; }
+@media (min-width: 48rem) {
+  .programme > li { grid-template-columns: var(--gutter) minmax(0, 1fr); }
+  .wrap--gutter .programme {
+    margin-left: calc(-1 * (var(--gutter) + var(--gutter-gap)));
+  }
+}
+
+/* The programme's heading, boxed in the wire the way the wordmark is, so the
+   run down the programme has somewhere to set out from (see _decorations.scss). */
+section.band h2.programme-title {
+  display: inline-block; margin: 0 0 .9rem; padding: .3rem .8rem .35rem;
+  border: 1px solid var(--wire); border-radius: var(--r-tech);
+}
+
+/* The panel's members, under the panel slot: a row of small portrait nodes,
+   the speakers' and then the moderator's, who is labelled. */
+.panel-list {
+  list-style: none; padding: 0; margin: .7rem 0 0; max-width: none;
+  display: flex; flex-wrap: wrap; gap: .5rem 1.1rem;
+}
+.panel-list li { margin: 0; display: inline-flex; align-items: center; gap: .45rem; }
+.panel-list .portrait {
+  flex: none; width: 32px; height: 32px; border-radius: 50%; object-fit: cover;
+  background: var(--node); border: 1px solid var(--node-line);
+}
+.panel-list .name { font-size: var(--t-sm); }
+.panel-list .role {
+  font-family: var(--f-mono); font-size: var(--t-xs); letter-spacing: .02em;
+  text-transform: uppercase; color: var(--warm-ink);
+}
+
+/* Registration again where the programme ends, which is where a reader
+   decides to come. In the slots' column, under the last one. */
+.programme-more {
+  display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem;
+  margin: 1.5rem 0 0; font-size: var(--t-sm); color: var(--ink-2);
+}
 
 /* Archive variant, for the SEMTL-era meetings. Same structure as the list
    above it, stepped down so the predecessor era reads as background: prose
@@ -434,8 +551,7 @@ section.band img { max-width: 100%; height: auto; }
 .member-list.speaker-list {
   grid-template-columns: 1fr;
   max-width: var(--prose); margin-inline: auto;
-  /* Nested in the programme, whose prose is justified; a short title set that
-     way opens rivers between its words. */
+  /* Justified, a short title opens rivers between its words. */
   text-align: left;
   /* A speaker is the draw, so the portrait is given the room a committee
      thumbnail does not need. Sized in px rather than rem, as this component's
@@ -443,11 +559,17 @@ section.band img { max-width: 100%; height: auto; }
      wires between cards to leave and arrive at a node's centre, and the root
      font size scales with the viewport, so a rem portrait would drift away
      from a px wire as the window grows. */
-  --node-r: 77px;   /* half the 152px portrait plus its own 1px casing */
+  --node-r: 61px;   /* half the 120px portrait plus its own 1px casing */
 }
-/* As tall as the name, the affiliation and a two-line title beside it, at the
-   width the programme is usually read. */
-.member-list.speaker-list .portrait { width: 152px; height: 152px; }
+/* About as tall as the name, the affiliation and a two-line title beside it, at
+   the width the programme is usually read. */
+.member-list.speaker-list .portrait { width: 120px; height: 120px; }
+/* On a phone the text beside a portrait is left a column a few words wide, so
+   the portrait goes above it. It stays at the card's top left, which is where
+   --node-x and --node-y put the wire's ends, so the wire still meets it. */
+@media (max-width: 43.99rem) {
+  .member-list.speaker-list li { flex-direction: column; }
+}
 .member-list.speaker-list .portrait-link { flex: none; line-height: 0; }
 .member-list.speaker-list li::before { display: none; }
 .member-list.speaker-list li:not(:first-child)::after { display: block; }
@@ -465,7 +587,8 @@ section.band img { max-width: 100%; height: auto; }
 }
 
 .speaker-title {
-  margin: .5rem 0 0; font-family: var(--f-display); font-size: var(--t-md);
+  margin: .35rem 0 0; font-family: var(--f-display); font-size: var(--t-base);
+  line-height: 1.35;
 }
 /* The site sets talk titles in italic; the card's own cite carries that, so it
    does not need a second slant from the browser default. */
@@ -474,7 +597,7 @@ section.band img { max-width: 100%; height: auto; }
    its text runs under both labels rather than beside the other. */
 .speaker-more {
   display: flex; flex-wrap: wrap; align-items: baseline; gap: .25rem 1.25rem;
-  margin-top: .5rem;
+  margin-top: .4rem;
 }
 .speaker-more details[open] { flex-basis: 100%; }
 /* Both are collapsed behind a label so the cards stay short and even; the
