@@ -39,7 +39,7 @@ summary: >-
       <p class="when">{% include date.html date=page.event_date lang=page.lang weekday=true %}</p>
       <dl class="event-details">
         <dt>Heure</dt><dd>{{ page.event_time }}</dd>
-        <dt>Lieu</dt><dd>{{ page.event_venue }}, {{ page.event_building }}, <span class="room">local {{ page.event_room }}</span></dd>
+        <dt>Lieu</dt><dd>{{ page.event_venue }},<br><span class="room">{{ page.event_building }}</span>, <span class="room">local {{ page.event_room }}</span></dd>
         <dt>Langue</dt><dd>Bilingue (français et anglais)</dd>
       </dl>
       <p class="more">

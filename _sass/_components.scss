@@ -137,23 +137,28 @@
   /* The card's two sides are grouped, so each is only as tall as its own
      content: as rows of one grid, the summary's height was shared out into the
      gap under the date. The side carries the column rule once. */
-  /* Two even columns, the label over the name rather than out in a margin
-     column of its own: with the margin, the summary side was left too narrow
-     for its text. The label, name, date and details are narrower than their
-     half, so they are centred in it rather than leaving the gap at the rule. */
+  /* The label sits over the name rather than out in a margin column of its
+     own: with the margin, the summary side was left too narrow for its text.
+     The details side is only as wide as its content and both sides keep the
+     same distance from the rule, so neither half floats in empty space. */
   .event--next {
-    --pad-x: 2.5rem;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    --pad-x: 5rem;
+    padding-left: 6.5rem; padding-right: 3.5rem;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 0;
   }
   .event--next .kicker { padding-top: 0; margin: 0 0 .45rem; }
   .event--next .event-main {
-    grid-column: 1; grid-row: 1; justify-self: center; align-self: center;
+    grid-column: 1; grid-row: 1; align-self: center;
+    padding-right: var(--gutter-gap);
   }
   .event--next .event-side {
     grid-column: 2; grid-row: 1; align-self: stretch;
+    display: flex; flex-direction: column; justify-content: center;
     padding: .3rem 0 .3rem var(--gutter-gap);
     border-left: 1px solid var(--feature-rule);
   }
+  .event--next .event-side > .note { max-width: none; }
   .event--next .event-side > .note, .event--next .event-side > .more {
     padding: 0; border: 0;
   }
@@ -162,10 +167,9 @@
   /* With no note, the action has the third column to itself, level with the
      name and the date. */
   .event--page .kicker { padding-top: .9rem; }
-  /* The details run on under the action, so the venue keeps to one line. */
-  .event--page .event-details { grid-column: 2 / span 2; }
+  /* The action spans every row, so it sits at the panel's vertical centre. */
   .event--page .more {
-    grid-row: 1 / span 2; align-self: center; padding-block: .5rem;
+    grid-row: 1 / span 3; align-self: center; padding-block: .5rem;
     /* The deadline under the button rather than beside it: the French one is
        too long to share the column's line. Both stay centred, from .event .more. */
     flex-direction: column;
