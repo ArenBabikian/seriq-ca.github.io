@@ -107,14 +107,21 @@ summary: >-
         <p class="slot-time">18 h 45 – 19 h 15</p>
         <div class="slot-body">
           <h3>Présentation de SERIQ</h3>
-          <p>Benoit Baudry, directeur de SERIQ, en présente l'histoire et la portée, suivi d'allocutions de doyen.ne.s et d'autres représentant.e.s (à confirmer).</p>
+          <p>Benoit Baudry, directeur de SERIQ, en présente l'histoire et la portée. Suivent des allocutions de représentant.e.s des universités et de la Ville de Montréal :</p>
+          <ul>
+            <li><a href="https://fas.umontreal.ca/faculte/direction-et-gouvernance/bureau-du-doyen/">Frédéric Bouchard</a>, doyen de la Faculté des arts et des sciences, Université de Montréal</li>
+            <li><a href="https://www.etsmtl.ca/etudier-a-lets/corps-enseignant/acarter">Alan Carter</a>, doyen de la recherche, ÉTS</li>
+            <li><a href="https://www.cs.mcgill.ca/~bpientka/">Brigitte Pientka</a>, directrice de l'École d'informatique, Université McGill</li>
+            <li><a href="https://montreal.ca/elus/alexandre-teodoresco-100445">Alexandre Teodoresco</a>, membre du comité exécutif responsable de l'intelligence artificielle, Ville de Montréal</li>
+          </ul>
+          <p>D'autres intervenant.e.s restent à confirmer.</p>
         </div>
       </li>
       <li>
         <p class="slot-time">19 h 15 – 20 h</p>
         <div class="slot-body">
           <h3>Réception de réseautage</h3>
-          <p>Une réception autour d'environ 35 affiches étudiantes.</p>
+          <p>Avec environ 35 affiches de recherche étudiantes.</p>
         </div>
       </li>
     </ol>

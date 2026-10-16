@@ -302,6 +302,7 @@ section.band .axes + h2 { margin-top: 2.75rem; }
   margin: 0; font-size: var(--t-md); letter-spacing: -.01em;
 }
 .programme .slot-body > p { margin: .3rem 0 0; color: var(--ink-2); }
+.programme .slot-body > ul:not(.member-list) {margin: .3rem 0 0; padding-left: 1.25rem; color: var(--ink-2); }
 /* Room under the last card, so it does not sit on the next slot's rule. */
 .programme .member-list.speaker-list { max-width: none; margin: 1rem 0 .5rem; }
 @media (min-width: 48rem) {

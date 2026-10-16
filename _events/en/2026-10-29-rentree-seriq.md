@@ -105,14 +105,21 @@ summary: >-
         <p class="slot-time">6:45–7:15 p.m.</p>
         <div class="slot-body">
           <h3>Presentation of SERIQ</h3>
-          <p>Benoit Baudry, director of SERIQ, presents its history and scope, followed by remarks from deans and other representatives (to be confirmed).</p>
+          <p>Benoit Baudry, director of SERIQ, presents its history and scope. Representatives of the universities and the City of Montréal then give remarks:</p>
+          <ul>
+            <li><a href="https://fas.umontreal.ca/faculte/direction-et-gouvernance/bureau-du-doyen/">Frédéric Bouchard</a>, Dean of the Faculty of Arts and Science, Université de Montréal</li>
+            <li><a href="https://www.etsmtl.ca/en/study-at-ets/professors/acarter">Alan Carter</a>, Dean of Research, ÉTS</li>
+            <li><a href="https://www.cs.mcgill.ca/~bpientka/">Brigitte Pientka</a>, Director of the School of Computer Science, McGill University</li>
+            <li><a href="https://montreal.ca/en/elected-officials/alexandre-teodoresco-100445">Alexandre Teodoresco</a>, Executive Committee member responsible for artificial intelligence, City of Montréal</li>
+          </ul>
+          <p>Other speakers are to be confirmed.</p>
         </div>
       </li>
       <li>
         <p class="slot-time">7:15–8:00 p.m.</p>
         <div class="slot-body">
           <h3>Networking reception</h3>
-          <p>A reception with about 35 student posters.</p>
+          <p>With around 35 student research posters.</p>
         </div>
       </li>
     </ol>
