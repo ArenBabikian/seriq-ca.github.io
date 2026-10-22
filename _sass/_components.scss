@@ -302,7 +302,28 @@ section.band .axes + h2 { margin-top: 2.75rem; }
   margin: 0; font-size: var(--t-md); letter-spacing: -.01em;
 }
 .programme .slot-body > p { margin: .3rem 0 0; color: var(--ink-2); }
-.programme .slot-body > ul:not(.member-list) {margin: .3rem 0 0; padding-left: 1.25rem; color: var(--ink-2); }
+/* Small amber portrait nodes, shared by the panel row and the SERIQ
+   presentation's speakers. Works on an img directly or on a span wrapping one.
+   A photo shot wider than a head and shoulders sets --zoom and --focus inline
+   on the img to bring the face up to the others' size; the ring then sits on
+   the wrapping span so the zoomed image is clipped inside it. */
+.portrait-sm {
+  flex: none; width: 56px; height: 56px; border-radius: 50%; overflow: hidden;
+  object-fit: cover;
+  background: var(--node); border: 1px solid var(--node-line);
+}
+.portrait-sm img {
+  display: block; width: 100%; height: 100%; object-fit: cover;
+  transform: scale(var(--zoom, 1)); transform-origin: var(--focus, 50% 50%);
+}
+
+/* Speakers at the SERIQ presentation: one person to a line, since each
+   carries a full title. Portraits are hotlinked, as the invited speakers' are. */
+.rep-list {
+  list-style: none; padding: 0; margin: .6rem 0 0; max-width: none;
+  display: grid; gap: .5rem; color: var(--ink-2);
+}
+.rep-list li { margin: 0; display: flex; align-items: center; gap: .6rem; }
 /* Room under the last card, so it does not sit on the next slot's rule. */
 .programme .member-list.speaker-list { max-width: none; margin: 1rem 0 .5rem; }
 @media (min-width: 48rem) {
@@ -326,10 +347,6 @@ section.band h2.programme-title {
   display: flex; flex-wrap: wrap; gap: .5rem 1.1rem;
 }
 .panel-list li { margin: 0; display: inline-flex; align-items: center; gap: .45rem; }
-.panel-list .portrait {
-  flex: none; width: 32px; height: 32px; border-radius: 50%; object-fit: cover;
-  background: var(--node); border: 1px solid var(--node-line);
-}
 .panel-list .name { font-size: var(--t-sm); }
 .panel-list .role {
   font-family: var(--f-mono); font-size: var(--t-xs); letter-spacing: .02em;
@@ -372,8 +389,9 @@ section.band h2.programme-title {
   order: 3; margin: .55rem 0 0; font-family: var(--f-mono);
   font-size: var(--t-xs); color: var(--ink-2); letter-spacing: .02em;
 }
-/* Ported bodies carry hand-written <img> with inline widths. */
-section.band img { max-width: 100%; height: auto; }
+/* Ported bodies carry hand-written <img> with inline widths. Kept to an
+   element's weight so any class that sizes an image, like .portrait-sm, wins. */
+:where(section.band) img { max-width: 100%; height: auto; }
 /* Markdown h3s run together without space above; the first still sits tight. */
 :where(section.band h3) { margin-top: 1.4rem; }
 :where(section.band > h3:first-child) { margin-top: 0; }

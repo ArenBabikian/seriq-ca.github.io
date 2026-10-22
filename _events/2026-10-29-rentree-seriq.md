@@ -107,14 +107,29 @@ summary: >-
         <p class="slot-time">18 h 45 – 19 h 15</p>
         <div class="slot-body">
           <h3>Présentation de SERIQ</h3>
-          <p>Benoit Baudry, directeur de SERIQ, en présente l'histoire et la portée. Suivent des allocutions de représentant.e.s des universités et de la Ville de Montréal :</p>
-          <ul>
-            <li><a href="https://fas.umontreal.ca/faculte/direction-et-gouvernance/bureau-du-doyen/">Frédéric Bouchard</a>, doyen de la Faculté des arts et des sciences, Université de Montréal</li>
-            <li><a href="https://www.etsmtl.ca/etudier-a-lets/corps-enseignant/acarter">Alan Carter</a>, doyen de la recherche, ÉTS</li>
-            <li><a href="https://www.cs.mcgill.ca/~bpientka/">Brigitte Pientka</a>, directrice de l'École d'informatique, Université McGill</li>
-            <li><a href="https://montreal.ca/elus/alexandre-teodoresco-100445">Alexandre Teodoresco</a>, membre du comité exécutif responsable de l'intelligence artificielle, Ville de Montréal</li>
+          <p>Benoit Baudry, directeur de SERIQ, en présente l'histoire et la portée. Suivent des allocutions de représentant.e.s de la Ville de Montréal et des universités :</p>
+          <ul class="rep-list">
+            <li>
+              <span class="portrait-sm"><img src="https://res.cloudinary.com/villemontreal/image/upload/w_348,ar_1,c_fill/f_auto,dpr_auto,q_auto/v1/portail/oyodcbg7vjpw2rea1mzl.jpg" alt="" width="56" height="56" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>
+              <span><a href="https://montreal.ca/elus/alexandre-teodoresco-100445">Alexandre Teodoresco</a>, membre du comité exécutif responsable de l'intelligence artificielle, Ville de Montréal</span>
+            </li>
+            <li>
+              <span class="portrait-sm"><img src="https://fas.umontreal.ca/public/FAS/_processed_/9/e/csm_Fre%CC%81de%CC%81ric_UdeM_2022_c_Fre%CC%81de%CC%81riqueMe%CC%81nard-AubinFrederic_786A2606_b492adc6e5.jpg" alt="" width="56" height="56" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>
+              <span><a href="https://fas.umontreal.ca/faculte/direction-et-gouvernance/bureau-du-doyen/">Frédéric Bouchard</a>, doyen de la Faculté des arts et des sciences, Université de Montréal</span>
+            </li>
+            <li>
+              <span class="portrait-sm"><img src="https://www.polymtl.ca/expertises/sites/expertises.lxpolywebprod.polymtl.ca/files/daria-camilla-boffito_1.jpg" alt="" width="56" height="56" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>
+              <span><a href="https://www.polymtl.ca/expertises/boffito-daria-camilla">Daria Camilla Boffito</a>, directrice associée, recherche et soutien à la recherche, Polytechnique Montréal</span>
+            </li>
+            <li>
+              <span class="portrait-sm"><img src="https://www.cs.mcgill.ca/media/professors/Pientka.jpg" alt="" width="56" height="56" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>
+              <span><a href="https://www.cs.mcgill.ca/~bpientka/">Brigitte Pientka</a>, directrice de l'École d'informatique, Université McGill</span>
+            </li>
+            <li>
+              <span class="portrait-sm"><img src="https://www.etsmtl.ca/uploads/_700xAUTO_fit_center-center_70_none/P20220119-Carter-Alan-002.jpg" alt="" width="56" height="56" loading="lazy" decoding="async" referrerpolicy="no-referrer" style="--zoom: 1.6; --focus: 96% 0%"></span>
+              <span><a href="https://www.etsmtl.ca/etudier-a-lets/corps-enseignant/acarter">Alan Carter</a>, doyen de la recherche, ÉTS</span>
+            </li>
           </ul>
-          <p>D'autres intervenant.e.s restent à confirmer.</p>
         </div>
       </li>
       <li>
