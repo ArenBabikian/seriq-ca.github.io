@@ -17,12 +17,12 @@
   --drop: 6px;  /* how far a run turns at right angles before it ends */
 
   /* The rhythm of a signal on a wire, kept in one place so every pulse on the
-     site runs off the same clock: one leg of travel takes 30% of the period,
-     the outward leg sets out at --pulse-out-delay and the returning one 2.7s
+     site runs off the same clock: one leg of travel takes 25% of the period,
+     the outward leg sets out at --pulse-out-delay and the returning one 3.9s
      behind it, and the wire rests for what is left of the cycle. */
-  --pulse-period: 6s;
+  --pulse-period: 12s;
   --pulse-out-delay: 2.4s;
-  --pulse-in-delay:  5.1s;
+  --pulse-in-delay:  6.3s;
 }
 
 /* The header braid: two strands, wire blue and node amber, interlaced so
@@ -185,12 +185,12 @@
 
 @keyframes pulse-out {
   0%   { stroke-dashoffset: .065; }
-  30%  { stroke-dashoffset: -1; }
+  25%  { stroke-dashoffset: -1; }
   100% { stroke-dashoffset: -1; }
 }
 @keyframes pulse-in {
   0%   { stroke-dashoffset: -1; }
-  30%  { stroke-dashoffset: .065; }
+  25%  { stroke-dashoffset: .065; }
   100% { stroke-dashoffset: .065; }
 }
 
@@ -350,19 +350,19 @@ $event-frame: event-frame-layers();
     left: calc(var(--wire-x) - var(--pulse-w) / 2); width: var(--pulse-w);
     background: linear-gradient(transparent, var(--pulse), transparent)
                 no-repeat 0 calc(var(--pulse-len) * -1) / 100% var(--pulse-len);
-    animation: axis-pulse calc(var(--pulse-period) * 2) var(--pulse-out-delay)
+    animation: axis-pulse calc(var(--pulse-period) * 1.425) var(--pulse-out-delay)
                ease-in-out infinite;
   }
 }
 
-/* Twice the period, so the run rests longer than the network's does — this one
-   sits beside prose that is being read. The stops are the shared rhythm inside
-   that cycle: 1.8s down, the return setting out 2.7s after the first leg, 1.8s
-   back, then still. */
+/* The network's legs, but a longer cycle (17.1s), so the run rests twice as
+   long as the network's does — this one sits beside prose that is being read:
+   3s down, the return setting out 3.9s after the first leg, 3s back, then
+   10.2s still. */
 @keyframes axis-pulse {
   0%           { background-position: 0 calc(var(--pulse-len) * -1); }
-  15%,   22.5% { background-position: 0 calc(100% + var(--pulse-len)); }
-  37.5%, 100%  { background-position: 0 calc(var(--pulse-len) * -1); }
+  17.5%, 22.8% { background-position: 0 calc(100% + var(--pulse-len)); }
+  40.4%, 100%  { background-position: 0 calc(var(--pulse-len) * -1); }
 }
 
 /* The same run again, turned on its side and laid across the top of the
@@ -409,7 +409,7 @@ $event-frame: event-frame-layers();
     top: calc(var(--node-y) - var(--pulse-h) / 2); height: var(--pulse-h);
     background: linear-gradient(90deg, transparent, var(--pulse), transparent)
                 no-repeat calc(var(--pulse-len) * -1) 0 / var(--pulse-len) 100%;
-    animation: cross-pulse calc(var(--pulse-period) * 2) var(--pulse-out-delay)
+    animation: cross-pulse calc(var(--pulse-period) * 1.425) var(--pulse-out-delay)
                ease-in-out infinite;
   }
 }
@@ -417,8 +417,8 @@ $event-frame: event-frame-layers();
 /* The vertical run's clock and stops, read left to right. */
 @keyframes cross-pulse {
   0%           { background-position: calc(var(--pulse-len) * -1) 0; }
-  15%,   22.5% { background-position: calc(100% + var(--pulse-len)) 0; }
-  37.5%, 100%  { background-position: calc(var(--pulse-len) * -1) 0; }
+  17.5%, 22.8% { background-position: calc(100% + var(--pulse-len)) 0; }
+  40.4%, 100%  { background-position: calc(var(--pulse-len) * -1) 0; }
 }
 
 /* A bare node, marking each meeting in a listing. */
