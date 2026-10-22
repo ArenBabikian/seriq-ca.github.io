@@ -23,11 +23,11 @@ permalink: /en/about/
     <p>
       The Centre develops software engineering research that supports the digital
       transformation of science and society. That research is organised around four
-      complementary axes addressing the challenges of modern software development.
-    </p>
-    <p>
-      The Centre has four partner institutions. Further universities may join the
-      inter-university agreement.
+      complementary axes: cyber-physical systems, ecosystem and infrastructure,
+      architecture and design, and human aspects. Four cross-cutting axes run across
+      them: AI, application domains, concerns and qualities, and knowledge transfer.
+      The Centre brings together four partner institutions, and the inter-university
+      agreement is open to other universities.
     </p>
     <ul class="partner-logos">
       {%- for inst in site.data.institutions %}

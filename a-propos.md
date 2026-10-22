@@ -23,12 +23,12 @@ permalink: /a-propos/
     <p>
       Le Centre développe une recherche en génie logiciel qui vise à soutenir la
       transformation numérique de la science et de la société. Cette recherche
-      s'articule autour de quatre axes complémentaires, qui répondent aux défis liés
-      au développement des logiciels modernes.
-    </p>
-    <p>
-      Le Centre compte quatre établissements partenaires. D'autres établissements
-      universitaires peuvent se joindre au protocole d'entente interuniversitaire.
+      s'articule autour de quatre axes complémentaires&nbsp;: systèmes
+      cyber-physiques, écosystème et infrastructure, architecture et conception, et
+      aspects humains. Quatre axes transversaux les traversent&nbsp;: IA, domaines
+      d'application, préoccupations et qualités, et transfert de connaissances. Le
+      Centre réunit quatre établissements partenaires, et le protocole d'entente
+      interuniversitaire est ouvert à d'autres universités.
     </p>
     <ul class="partner-logos">
       {%- for inst in site.data.institutions %}
