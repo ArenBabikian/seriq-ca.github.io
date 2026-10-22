@@ -6,8 +6,8 @@ third parties. The values here are plain filenames and the template resolves
 them against this directory — there is no remote branch any more, so a URL in
 `photo:` will not work.
 
-  * square, 144×144 — the page renders them at 48 CSS pixels, so this covers
-    displays up to 3×
+  * square, 144×144 — the page renders them at 56 CSS pixels, so this covers
+    displays up to 2.5×
   * `.jpg` for photographs, `.png` only for flat graphics
   * name the file after the member's surname, lowercased and stripped of
     accents and spaces: `baudry.jpg`, `elboussaidi.jpg`

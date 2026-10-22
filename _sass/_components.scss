@@ -418,7 +418,7 @@ section.band h2.programme-title {
   --card-gap: 14px;
   --card-pad: 8px;
   --card-pad-x: 10px;
-  --node-r: 25px;   /* half the 48px portrait plus its own 1px casing */
+  --node-r: 29px;   /* half the 56px portrait plus its own 1px casing */
   /* A stub is positioned against the card's padding box, so reaching a node's
      centre from that edge means crossing the padding first. */
   --node-y: calc(var(--card-pad) + var(--node-r));
@@ -503,8 +503,9 @@ section.band h2.programme-title {
      size scales with the viewport (clamp(1rem, .8vw + .7rem, 1.5rem)). A 3rem
      portrait grew to 72px on a wide window while --node-r stayed at 25px, so
      every wire arrived 11px above the node it was supposed to meet. The img
-     width/height attributes and the 144x144 sources both already say 48. */
-  flex: none; width: 48px; height: 48px; border-radius: 50%;
+     width/height attributes say 56 too, the size .portrait-sm uses for the
+     event pages' smaller nodes. */
+  flex: none; width: 56px; height: 56px; border-radius: 50%;
   object-fit: cover;
   background: var(--node); border: 1px solid var(--node-line);
 }
